@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sukiui="https://github.com/kikipoulet/SukiUI"
+             x:Class="StuScoManager.Views.StudentManageView">
+    <StackPanel>
+        <sukiui:GlassCard>
+            <Button Content="添加新学生" Classes="Flat"></Button>
+        </sukiui:GlassCard>
+    </StackPanel>
+</UserControl>

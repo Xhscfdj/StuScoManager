@@ -1,0 +1,32 @@
+<Application
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="StuScoManager.App"
+    xmlns:local="using:StuScoManager"
+    xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
+    RequestedThemeVariant="Default">
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <sukiUi:SukiTheme Locale="zh-CN" ThemeColor="Blue" />
+
+    <Style Selector="ToggleButton.ghostToggle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBaseColor}" />
+    </Style>
+
+    <Style Selector="ToggleButton.ghostToggle:pointerover">
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="ToggleButton.ghostToggle:checked">
+        <Setter Property="Background" Value="RoyalBlue" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    </Application.Styles>
+
+</Application>

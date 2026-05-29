@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sukiui="https://github.com/kikipoulet/SukiUI"
+             xmlns:vm="clr-namespace:StuScoManager.ViewModels"
+             x:Class="StuScoManager.Views.InitView"
+             x:DataType="vm:InitViewModel">
+    <Grid MaxWidth="600" MinWidth="200" HorizontalAlignment="Left" Width="600" Margin="25,20,20,20">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Text="欢迎使用，请设置密码" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="14,10,10,0" Grid.Row="0"/>
+
+        <TextBox PlaceholderText="设置密码(12位，可包含字母和数字)" Margin="10,10,10,0" Grid.Row="1" Text="{Binding Password, Mode=TwoWay}" />
+        <TextBox PlaceholderText="确认密码(输入与上面相同的密码)" Margin="10,10,10,0" Grid.Row="2" Text="{Binding Pwd, Mode=TwoWay}" />
+        <Button Content="确认" Classes="Flat" Grid.Row="3" Margin="10,10,10,10" Command="{Binding SetPwdCommand}"/>
+        
+    </Grid>
+</UserControl>

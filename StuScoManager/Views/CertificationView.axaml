@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sukiui="https://github.com/kikipoulet/SukiUI"
+             xmlns:vm="clr-namespace:StuScoManager.ViewModels"
+             x:DataType="vm:CertificationViewModel"
+             x:Class="StuScoManager.Views.CertificationView">
+    
+    <Grid HorizontalAlignment="Left" MinWidth="400" Width="600" Margin="20,10,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="登录/退出登录" FontSize="20" HorizontalAlignment="Left" Margin="14,10,0,0" Grid.Row="0"/>
+        <TextBox PlaceholderText="密码……" Margin="10,10,10,0" Grid.Row="1" Grid.Column="0" Text="{Binding InputPassword, Mode=TwoWay}"></TextBox>
+        <Button Content="确认" Margin="10,15,10,0" Grid.Row="2" Grid.Column="0" Classes="Flat" Command="{Binding LoginCommand}"/>
+        <Button Content="退出登录" Grid.Row="3" Grid.Column="0" Margin="10,15,10,0" BorderBrush="Red" Foreground="Red"/>
+
+    </Grid>
+</UserControl>
