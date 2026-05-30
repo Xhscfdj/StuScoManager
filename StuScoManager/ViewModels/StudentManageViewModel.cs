@@ -48,7 +48,7 @@ namespace StuScoManager.ViewModels
                 .Dismiss().ByClicking()
                 .Queue();
         }
-        private readonly string _saveFilePath = "students.json";
+        private readonly string _saveFilePath = "./students/students.json";
 
         [RelayCommand]
         private void DeleteStudent(Student student)
