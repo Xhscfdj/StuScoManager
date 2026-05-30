@@ -12,7 +12,8 @@
     Title="StuScoManager">
 
     <sukiUi:SukiWindow.Hosts>
-        <sukiUi:SukiDialogHost Manager="{Binding DialogManager, RelativeSource={RelativeSource AncestorType=sukiUi:SukiWindow}}"/>
+        <sukiUi:SukiDialogHost Manager="{x:Static vm:MainWindowViewModel.MainDialogManager}"/>
+        <sukiUi:SukiToastHost Manager="{x:Static vm:StudentManageViewModel.ToastManager}"/>
     </sukiUi:SukiWindow.Hosts>
     <Design.DataContext>
         <!--This only sets the DataContext for the previewer in an IDE,
@@ -21,10 +22,11 @@
     </Design.DataContext> 
 
     <StackPanel Spacing="16" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-        <sukiUi:GlassCard CornerRadius="12" HorizontalAlignment="Stretch" Height="40">
+        <!--导航栏-->
+        <sukiUi:GlassCard CornerRadius="0,0,12,12" HorizontalAlignment="Stretch" Height="40">
             <StackPanel Spacing="8" Orientation="Horizontal">
                 <Button Content="身份认证" Command="{Binding SwitchToCertificationPageCommand}" FontSize="14" Height="40" BorderThickness="0" Classes="Outline" VerticalAlignment="Center"/>
-                <Button Content="学生管理" Command="{Binding SwitchToStudentManagePageCommand}" FontSize="14" VerticalAlignment="Center" Height="40" Classes="Outline" BorderThickness="0"/>
+                <Button Content="学生管理" IsVisible="{Binding IsStudentManagePageVisible}" Command="{Binding SwitchToStudentManagePageCommand}" FontSize="14" VerticalAlignment="Center" Height="40" Classes="Outline" BorderThickness="0"/>
                 <Button Content="test:initview" Command="{Binding SwitchToInitPageCommand}" FontSize="14" Classes="Outline" BorderThickness="0" Height="40" VerticalAlignment="Center"></Button>
             </StackPanel>
         </sukiUi:GlassCard>

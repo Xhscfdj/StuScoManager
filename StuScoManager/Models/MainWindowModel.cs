@@ -10,7 +10,6 @@ namespace StuScoManager.Models
     public class RuntimeConfigs
     {
         public static bool logined = false;
-        public RuntimeConfigs() { }
     }
     public class Configs
     {

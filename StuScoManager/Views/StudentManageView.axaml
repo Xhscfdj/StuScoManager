@@ -1,10 +1,93 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:compilerservices="using:System.Runtime.CompilerServices"
+             xmlns:core="using:Avalonia.Data.Core"
+             xmlns:metadata="using:Avalonia.Metadata"
+             xmlns:models="using:StuScoManager.Models"
+             xmlns:selection="using:Avalonia.Controls.Selection"
              xmlns:sukiui="https://github.com/kikipoulet/SukiUI"
-             x:Class="StuScoManager.Views.StudentManageView">
-    <StackPanel>
-        <sukiui:GlassCard>
-            <Button Content="添加新学生" Classes="Flat"></Button>
+             x:Class="StuScoManager.Views.StudentManageView"
+             xmlns:vm="clr-namespace:StuScoManager.ViewModels"
+             x:DataType="vm:StudentManageViewModel">
+        
+    <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="*">
+        <sukiui:GlassCard Margin="0,0,0,10">
+            <Grid ColumnDefinitions="*,*,40">
+                <TextBox PlaceholderText="新学生姓名" Text="{Binding NewStudentName, Mode=TwoWay}"></TextBox>
+                <TextBox PlaceholderText="新学生起始分数" Grid.Column="1" Margin="20,0,20,0" 
+                         Text="{Binding NewStudentScore, Mode=TwoWay}"></TextBox>
+                <Button Padding="0"
+                        Classes="Flat Rounded"
+                        FontWeight="Bold"
+                        FontSize="24"
+                        Margin="0,0,0,0"
+                        Height="40"
+                        Grid.Column="2"
+                        Command="{Binding AddStudentCommand}">+</Button>
+            </Grid>            
         </sukiui:GlassCard>
-    </StackPanel>
+        <TextBlock Text="学生列表:" Grid.Row="1" Margin="20,0,0,20" FontWeight="Bold" FontSize="20"></TextBlock>
+        <ScrollViewer Grid.Row="2" Margin="20,0,0,0">
+            <ItemsControl ItemsSource="{Binding Students}">
+                                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="models:Student">
+                        <sukiui:GlassCard Height="70"  Margin="0,0,0,15">
+                            <DockPanel Height="40">                                
+                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,20,0">
+                                    <TextBlock Text="{Binding Name}" 
+                                               FontWeight="Bold" 
+                                               FontSize="16"
+                                               IsVisible="{Binding !IsEditing}" 
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBox Text="{Binding Name}" 
+                                             Width="150"
+                                             IsVisible="{Binding IsEditing}" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="100,0,0,0" Spacing="10">
+                                    <TextBlock Text="{Binding Score}" 
+                                               IsVisible="{Binding !IsEditing}"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Text="分" IsVisible="{Binding !IsEditing}" VerticalAlignment="Center"/>
+                                    
+                                    <NumericUpDown Value="{Binding Score}"
+                                                          Minimum="0"
+                                                          Increment="1"
+                                                          Width="100"
+                                                          IsVisible="{Binding IsEditing}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="20,0,0,0" Spacing="10" HorizontalAlignment="Right" DockPanel.Dock="Right">
+                                    <Button Content="编辑" 
+                                            Classes="Flat"
+                                            IsVisible="{Binding !IsEditing}"
+                                            Command="{Binding $parent[ItemsControl].DataContext.ToggleEditModeCommand}"
+                                            CommandParameter="{Binding}"/>
+
+                                    <Button Content="取消" 
+                                            Classes="Flat"
+                                            IsVisible="{Binding IsEditing}"
+                                            Command="{Binding $parent[ItemsControl].DataContext.ToggleEditModeCommand}"
+                                            CommandParameter="{Binding}"/>
+
+                                    <Button Content="保存" 
+                                            Classes="Flat"
+                                            IsVisible="{Binding IsEditing}"
+                                            Command="{Binding $parent[ItemsControl].DataContext.SaveEditCommand}"
+                                            CommandParameter="{Binding}"/>
+
+                                    <Button Content="删除" 
+                                            Classes="Flat"
+                                            Command="{Binding $parent[ItemsControl].DataContext.DeleteStudentCommand}"
+                                            CommandParameter="{Binding}"
+                                            Background="Red"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </sukiui:GlassCard>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>            
+    </Grid>
 </UserControl>
