@@ -1,5 +1,5 @@
 # StuScoManager
-Language: [zh-cn](https://www.github.com/Xhscfdj/StuScoManager/README.md) | en
+Language: [zh-cn](https://www.github.com/Xhscfdj/StuScoManager/) | en
 
 Note: This file is translated from Chinese by machine, including this sentence.
 
