@@ -22,6 +22,15 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="SukiUI" Version="7.0.1" />
+	  <!-- 包含 config 文件夹下的所有文件 -->
+	  <Content Include="config\**\*">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+
+	  <!-- 包含 students 文件夹下的所有文件 -->
+	  <Content Include="students\**\*">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
   </ItemGroup>
 
   <ItemGroup>
