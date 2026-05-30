@@ -27,7 +27,8 @@
             <StackPanel Spacing="8" Orientation="Horizontal">
                 <Button Content="身份认证" Command="{Binding SwitchToCertificationPageCommand}" FontSize="14" Height="40" BorderThickness="0" Classes="Outline" VerticalAlignment="Center"/>
                 <Button Content="学生管理" IsVisible="{Binding IsStudentManagePageVisible}" Command="{Binding SwitchToStudentManagePageCommand}" FontSize="14" VerticalAlignment="Center" Height="40" Classes="Outline" BorderThickness="0"/>
-                <Button Content="test:initview" Command="{Binding SwitchToInitPageCommand}" FontSize="14" Classes="Outline" BorderThickness="0" Height="40" VerticalAlignment="Center"></Button>
+                <!-- 别忘了发布时修改该按钮可见性 -->
+                <Button Content="test:initview" IsVisible="False" Command="{Binding SwitchToInitPageCommand}" FontSize="14" Classes="Outline" BorderThickness="0" Height="40" VerticalAlignment="Center"></Button>
             </StackPanel>
         </sukiUi:GlassCard>
         <ContentControl Content="{Binding CurrentPage}"/>
