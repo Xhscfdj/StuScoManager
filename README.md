@@ -1,5 +1,5 @@
 # StuScoManager
-Language: zh-cn | [en](https://www.github.com/Xhscfdj/StuScoManager/blob/master/README_EN.md)
+Language: zh-cn | [English](https://www.github.com/Xhscfdj/StuScoManager/blob/master/README_EN.md)
 
 StuScoManager, 是基于.NET8.0，avalonia12.0.3和Sukiui7.0.1编写的一个管理学生分数的一个程序，是想写给老师给老师用的。
 [米水城，我自己的网站的介绍链接](https://www.mishui.city/archives/StuScoManager)
